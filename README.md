@@ -4,7 +4,10 @@
 
 ## PART 1 - Build an External Package (JAR short for Java Archive)
 
-A Jar is really just a Zip file with some added Metadata (i.e. data about data). They are organized much the same way file systems are organized, think folders nested in folders with importable Java classes being the files in those folders. So if you have a folder hierarchy like **edu/redwoods/cis12** and you had several Java files in the cis12 subfolder named **Class1** and **Class2** you could Zip it up into a **.jar** file, import it into your IntelliJ project, and then import those classes like so:
+A Jar is really just a Zip file with some added Metadata (i.e. data about data). They are organized much the same way file systems are organized, 
+think folders nested in folders with importable Java classes being the files in those folders. So if you have a folder hierarchy like **edu/redwoods/cis12** 
+and you had several Java files in the cis12 subfolder named **Class1** and **Class2** you could Zip it up into a **.jar** file, import it into your IntelliJ project, 
+and then import those classes like so:
 
 ```
 import edu.redwoods.cis12.Class1;
@@ -55,14 +58,25 @@ Your assignment is to use Built-In java classes to:
 ## PART 3 - Code Scanning and Interpretation
 
 * Look at the getHiddenSecrets method and identify the following parts by editing this README.md and providing your answers:
-    * What is the **access modifer** (e.g. public, private, protected)?
-    * Is it a **Class method** or an **object Instance method**, how do you know?
-    * What is its **return data-type**?
-    * Does it require any **arguments** to call it, and if so, how many **parameters** and of what **data-type**?
+    * What is the **access modifer** (e.g. public, private, protected)? : public
+    * Is it a **Class method** or an **object Instance method**, how do you know? : Class method
+    * What is its **return data-type**? : Void
+    * Does it require any **arguments** to call it, and if so, how many **parameters** and of what **data-type**? : The argument to call it is File. There is one parameter of the File data type
 * Scan line by line through the code and try to determine how it works?
-    * What is familiar to you?
-    * What is not familiar to you?
-    * Do the **for** loops make sense, and if so, tell me what you think they do?
+    * What is familiar to you? :   
+      * if (directory.hasErrors()) {
+        for (String error : directory.getErrors()) {
+        System.err.format("ERROR: %s%n", error); is a for loop. This particular loop loops through the directories in the metadata.  It prints the directory name, tag name
+      * , and tag description to the console. The scanner class is also familiar to me.
+    * What is not familiar to you? : I dont know about Catch
+    * Do the **for** loops make sense, and if so, tell me what you think they do? : THis for loop loops the directories of the metadata 
+    * for (Directory directory : metadata.getDirectories()) {
+      for (Tag tag : directory.getTags()) {
+      System.out.format("[%s] - %s = %s%n",
+      directory.getName(), tag.getTagName(), tag.getDescription());
+    * While this loop will only activate its if condition if an error is detected. The top loop will continue to run and not interact with the error loop unless on is detected and t hen the if
+    * condition activates. As for catch, I havnt seen it be fore but this seems to be a way to throw up specific error messages to specific errors. Ive seen somthing like
+    * throw used on stack overflow but not catch.
 
 ## PART 4 - Turn in
 

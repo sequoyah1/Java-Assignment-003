@@ -7,6 +7,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.Scanner;
+import java.nio.file.Path;
+
 
 // PUT YOUR IMPORTS HERE
 
@@ -37,6 +41,14 @@ public class HiddenSecrets {
     }
 
     public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("File Path:");
+            String inputPath = scanner.nextLine();
+            Path path = Paths.get(inputPath);
+            File file = path.toFile();
+            getHiddenSecrets(file);
+
+
         // Put your code to request a file path,
         // read in a string from System.in,
         // convert that string into A Path type using Paths class,
@@ -44,3 +56,5 @@ public class HiddenSecrets {
         // HERE
     }
 }
+
+
